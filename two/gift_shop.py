@@ -1,27 +1,16 @@
-import re 
-
-list_id = []
-
 with open('two/input.txt') as f:
-    list_id = f.read().split(',')
+    ranges = [list(map(int, item.split('-'))) for item in f.read().split(',')] 
+    numbers = sum((list(range(a, b + 1)) for a, b in ranges), [])
 
 # remove the new line
-list_id[-1] = list_id[-1][:-2]
+#list_id[-1] = list_id[-1][:-2]
+invalid_sum = 0
 
-def invalid_check(n):
-    invalid_sum = 0
+for num in numbers:
+    s = str(num)
+    for i in range(2, len(s) + 1):
+        if len(s) % i == 0 and s[:len(s) // i] * i == s:
+            invalid_sum += num
+            break
 
-    for product_id in n:
-        first, last = product_id.split('-')
-
-        for i in range(int(first), int(last)):
-            num = str(i)
-            length = len(num)
- 
-            half = (length // 2)
-            if num[:half] * 2 == num:
-                invalid_sum += int(num)
-
-    return invalid_sum
-
-print(invalid_check(list_id))
+print(invalid_sum)
