@@ -4,7 +4,7 @@ def part_one():
     current_number = 50
     dial_turns = []
 
-    with open('day_one/input.txt') as f:
+    with open('2025/day_one/input.txt') as f:
         dial_turns = f.read().split('\n')
 
     for line in dial_turns:
