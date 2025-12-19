@@ -1,4 +1,4 @@
-with open('day_three/input.txt') as f:
+with open('2025day_three/input.txt') as f:
     batteries = [line for line in f.read().splitlines()]
 
 total = 0

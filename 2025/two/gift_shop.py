@@ -1,4 +1,4 @@
-with open('two/input.txt') as f:
+with open('2025/two/input.txt') as f:
     ranges = [list(map(int, item.split('-'))) for item in f.read().split(',')] 
     numbers = sum((list(range(a, b + 1)) for a, b in ranges), [])
 
@@ -13,4 +13,4 @@ for num in numbers:
             invalid_sum += num
             break
 
-print(invalid_sum)
+print(ranges)
